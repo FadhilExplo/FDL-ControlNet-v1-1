@@ -88,17 +88,17 @@ def process(det, input_image, prompt, a_prompt, n_prompt, num_samples, image_res
 block = gr.Blocks().queue()
 with block:
     with gr.Row():
-        gr.Markdown("## Control Anything V3 with Anime Lineart")
+        gr.Markdown("## ControlNet Anime Lineart")
     with gr.Row():
         with gr.Column():
             input_image = gr.Image(source='upload', type="numpy")
-            prompt = gr.Textbox(label="Prompt")
-            a_prompt = gr.Textbox(label="Added Prompt (Beginners do not need to change)", value='masterpiece, best quality, ultra-detailed, illustration, disheveled hair')
+            prompt = gr.Textbox(label="Prompt"), value='1boy, dark background, white hair, skin tone, blood, black tshirt'
+            a_prompt = gr.Textbox(label="Added Prompt (Beginners do not need to change)", value='masterpiece, best quality, ultra-detailed, illustration')
             n_prompt = gr.Textbox(label="Negative Prompt (Beginners do not need to change)",
-                                  value='longbody, lowres, bad anatomy, bad hands, missing fingers, pubic hair,extra digit, fewer digits, cropped, worst quality, low quality')
+                                  value='realistic, 3d, longbody, lowres, bad anatomy, bad hands, missing fingers, pubic hair,extra digit, fewer digits, cropped, worst quality, low quality')
             run_button = gr.Button(label="Run")
             num_samples = gr.Slider(label="Images", minimum=1, maximum=12, value=1, step=1)
-            seed = gr.Slider(label="Seed", minimum=-1, maximum=2147483647, step=1, value=12345)
+            seed = gr.Slider(label="Seed", minimum=-1, maximum=2147483647, step=1, value=-1)
             det = gr.Radio(choices=["None", "Lineart_Anime"], type="value", value="None", label="Preprocessor")
             with gr.Accordion("Advanced options", open=False):
                 image_resolution = gr.Slider(label="Image Resolution", minimum=256, maximum=2048, value=512, step=64)
