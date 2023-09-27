@@ -98,7 +98,7 @@ with block:
                                   value='realistic, 3d, longbody, lowres, bad anatomy, bad hands, missing fingers, pubic hair,extra digit, fewer digits, cropped, worst quality, low quality')
             run_button = gr.Button(label="Run")
             num_samples = gr.Slider(label="Images", minimum=1, maximum=12, value=1, step=1)
-            seed = gr.Slider(label="Seed", minimum=-1, maximum=2147483647, step=1, value=12345)
+            seed = gr.Slider(label="Seed", minimum=-1, maximum=2147483647, step=1, value=-1)
             det = gr.Radio(choices=["None", "Lineart_Anime"], type="value", value="None", label="Preprocessor")
             with gr.Accordion("Advanced options", open=False):
                 image_resolution = gr.Slider(label="Image Resolution", minimum=256, maximum=2048, value=512, step=64)
